@@ -1,92 +1,109 @@
 # Practical JSX: Variables and Objects
 
-A small React learning project that demonstrates how JavaScript variables, arrays,
-booleans, and objects can be rendered in JSX. The example presents a Dragon Quest
-review and uses conditional rendering and `map()` to display its data.
+A small React learning project that demonstrates how JavaScript variables, arrays, objects, conditional expressions, and mapped lists can be rendered in JSX. The example displays a Dragon Quest review using both standalone variables and properties from a review object.
 
 ## Why this project is useful
 
-- Shows the difference between rendering standalone variables and object properties.
-- Demonstrates JSX expressions such as `{name}` and `{review.title}`.
-- Uses a ternary expression to turn a boolean into readable UI text.
-- Uses `map()` to render an array as a list with React keys.
-- Provides a minimal Create React App structure that is easy to modify while learning.
+This project provides a focused example for developers learning to:
+
+- Embed JavaScript values in JSX with curly-brace expressions.
+- Render strings, numbers, and boolean values in a component.
+- Use a ternary expression to display a readable value for a boolean.
+- Render an array as a list with `.map()` and React keys.
+- Read nested properties from a JavaScript object in a React component.
 
 ## Getting started
 
 ### Prerequisites
 
 - Node.js and npm
-- A browser and a code editor
+- A browser that supports the development build
 
-### Install and run
+### Installation
 
-From the project directory:
+1. Clone the repository and move into the project directory:
 
-```bash
-npm install
-npm start
-```
+   ```bash
+   git clone https://github.com/VoidLance/course-files-javascript-react-practical-jsx-variables-and-objects.git
+   cd course-files-javascript-react-practical-jsx-variables-and-objects
+   ```
 
-Open <http://localhost:3000> in a browser. The development server reloads when
-source files change.
+2. Install the dependencies:
 
-### Build for production
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run build
-```
+3. Start the development server:
 
-The optimized application is written to `build/`.
+   ```bash
+   npm start
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser. The page reloads automatically as you edit the source files.
 
 ## Example
 
-The main example lives in [`src/DisplayVariables.js`](src/DisplayVariables.js).
-To add another review item, update the `pros` array and render it with the
-existing pattern:
+The main lesson is implemented in `src/DisplayVariables.js`. JSX can interpolate variables and object properties directly:
 
 ```jsx
-const pros = ['Great Story', 'Engaging Gameplay'];
+const name = 'Dragon Quest';
+const review = {
+  title: 'Dragon Quest Review',
+  score: 100,
+  isAwesome: true,
+};
 
-<ul>
-  {pros.map((pro, index) => (
-    <li key={index}>{pro}</li>
-  ))}
-</ul>
+return (
+  <>
+    <p>Name: {name}</p>
+    <p>Title: {review.title}</p>
+    <p>Score: {review.score}</p>
+    <p>Is Awesome: {review.isAwesome ? 'Yes' : 'No'}</p>
+  </>
+);
 ```
 
-The application entry point is [`src/App.js`](src/App.js), and React mounts it
-from [`src/index.js`](src/index.js).
+The complete example also maps the `pros` array into an unordered list.
 
 ## Available commands
 
-| Command | Purpose |
+Run these commands from the project directory:
+
+| Command | Description |
 | --- | --- |
-| `npm start` | Run the development server |
-| `npm test` | Run the test runner |
-| `npm run build` | Create a production build |
-| `npm run eject` | Eject from Create React App (irreversible) |
+| `npm start` | Starts the development server. |
+| `npm test` | Runs the test suite in interactive watch mode. |
+| `npm run build` | Creates an optimized production build in `build/`. |
+| `npm run eject` | Exposes the Create React App configuration. This is irreversible and usually unnecessary. |
+
+## Project structure
+
+```text
+src/
+├── App.js                 # Root component
+├── DisplayVariables.js    # JSX variables and objects example
+├── App.test.js            # Component test
+├── index.js               # Application entry point
+└── *.css                  # Application styles
+public/                    # Static assets and HTML shell
+```
 
 ## Getting help
 
-For React concepts, see the [React documentation](https://react.dev/learn).
-For project tooling, see the [Create React App documentation](https://create-react-app.dev/docs/getting-started/).
-If you find a problem with this example, open an issue in the repository with
-the command you ran and the relevant error output.
+For questions about this example:
+
+- Open an [issue](https://github.com/VoidLance/course-files-javascript-react-practical-jsx-variables-and-objects/issues).
+- Review the [React documentation](https://react.dev/learn).
+- Review the [Create React App documentation](https://create-react-app.dev/docs/getting-started/).
 
 ## Contributing
 
-Contributions are welcome. Please:
+The project is maintained by [VoidLance](https://github.com/VoidLance). Contributions are welcome:
 
-1. Create a focused branch for your change.
-2. Keep examples beginner-friendly and consistent with the existing React structure.
-3. Run the relevant npm commands before submitting a pull request.
-4. Describe what changed and how it was tested.
+1. Fork the repository and create a focused branch.
+2. Make your change and update related tests or documentation.
+3. Run `npm test` and `npm run build`.
+4. Open a pull request with a clear description of the change.
 
-The project is maintained by [VoidLance](https://github.com/VoidLance).
-Refer to the repository's issue tracker for open improvements and questions.
-
-## License
-
-This repository does not currently include a license file. Add or consult the
-repository license before redistributing the project.
+Keep examples focused on the JavaScript and JSX concepts demonstrated by this project.
