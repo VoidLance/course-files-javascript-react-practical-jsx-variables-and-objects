@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Practical JSX: Variables and Objects
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small React learning project that demonstrates how JavaScript variables, arrays,
+booleans, and objects can be rendered in JSX. The example presents a Dragon Quest
+review and uses conditional rendering and `map()` to display its data.
 
-## Available Scripts
+## Why this project is useful
 
-In the project directory, you can run:
+- Shows the difference between rendering standalone variables and object properties.
+- Demonstrates JSX expressions such as `{name}` and `{review.title}`.
+- Uses a ternary expression to turn a boolean into readable UI text.
+- Uses `map()` to render an array as a list with React keys.
+- Provides a minimal Create React App structure that is easy to modify while learning.
 
-### `npm start`
+## Getting started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js and npm
+- A browser and a code editor
 
-### `npm test`
+### Install and run
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+From the project directory:
 
-### `npm run build`
+```bash
+npm install
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open <http://localhost:3000> in a browser. The development server reloads when
+source files change.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Build for production
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm run build
+```
 
-### `npm run eject`
+The optimized application is written to `build/`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Example
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The main example lives in [`src/DisplayVariables.js`](src/DisplayVariables.js).
+To add another review item, update the `pros` array and render it with the
+existing pattern:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```jsx
+const pros = ['Great Story', 'Engaging Gameplay'];
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<ul>
+  {pros.map((pro, index) => (
+    <li key={index}>{pro}</li>
+  ))}
+</ul>
+```
 
-## Learn More
+The application entry point is [`src/App.js`](src/App.js), and React mounts it
+from [`src/index.js`](src/index.js).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Available commands
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Command | Purpose |
+| --- | --- |
+| `npm start` | Run the development server |
+| `npm test` | Run the test runner |
+| `npm run build` | Create a production build |
+| `npm run eject` | Eject from Create React App (irreversible) |
 
-### Code Splitting
+## Getting help
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+For React concepts, see the [React documentation](https://react.dev/learn).
+For project tooling, see the [Create React App documentation](https://create-react-app.dev/docs/getting-started/).
+If you find a problem with this example, open an issue in the repository with
+the command you ran and the relevant error output.
 
-### Analyzing the Bundle Size
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Contributions are welcome. Please:
 
-### Making a Progressive Web App
+1. Create a focused branch for your change.
+2. Keep examples beginner-friendly and consistent with the existing React structure.
+3. Run the relevant npm commands before submitting a pull request.
+4. Describe what changed and how it was tested.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The project is maintained by [VoidLance](https://github.com/VoidLance).
+Refer to the repository's issue tracker for open improvements and questions.
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This repository does not currently include a license file. Add or consult the
+repository license before redistributing the project.
