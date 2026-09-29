@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Practical JSX: Variables and Objects
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small React learning project that demonstrates how JavaScript variables, arrays, objects, conditional expressions, and mapped lists can be rendered in JSX. The example displays a Dragon Quest review using both standalone variables and properties from a review object.
 
-## Available Scripts
+## Why this project is useful
 
-In the project directory, you can run:
+This project provides a focused example for developers learning to:
 
-### `npm start`
+- Embed JavaScript values in JSX with curly-brace expressions.
+- Render strings, numbers, and boolean values in a component.
+- Use a ternary expression to display a readable value for a boolean.
+- Render an array as a list with `.map()` and React keys.
+- Read nested properties from a JavaScript object in a React component.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+- Node.js and npm
+- A browser that supports the development build
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation
 
-### `npm run build`
+1. Clone the repository and move into the project directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone https://github.com/VoidLance/course-files-javascript-react-practical-jsx-variables-and-objects.git
+   cd course-files-javascript-react-practical-jsx-variables-and-objects
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install the dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. Start the development server:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser. The page reloads automatically as you edit the source files.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Example
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+The main lesson is implemented in `src/DisplayVariables.js`. JSX can interpolate variables and object properties directly:
 
-## Learn More
+```jsx
+const name = 'Dragon Quest';
+const review = {
+  title: 'Dragon Quest Review',
+  score: 100,
+  isAwesome: true,
+};
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+return (
+  <>
+    <p>Name: {name}</p>
+    <p>Title: {review.title}</p>
+    <p>Score: {review.score}</p>
+    <p>Is Awesome: {review.isAwesome ? 'Yes' : 'No'}</p>
+  </>
+);
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The complete example also maps the `pros` array into an unordered list.
 
-### Code Splitting
+## Available commands
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Run these commands from the project directory:
 
-### Analyzing the Bundle Size
+| Command | Description |
+| --- | --- |
+| `npm start` | Starts the development server. |
+| `npm test` | Runs the test suite in interactive watch mode. |
+| `npm run build` | Creates an optimized production build in `build/`. |
+| `npm run eject` | Exposes the Create React App configuration. This is irreversible and usually unnecessary. |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Project structure
 
-### Making a Progressive Web App
+```text
+src/
+├── App.js                 # Root component
+├── DisplayVariables.js    # JSX variables and objects example
+├── App.test.js            # Component test
+├── index.js               # Application entry point
+└── *.css                  # Application styles
+public/                    # Static assets and HTML shell
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Getting help
 
-### Advanced Configuration
+For questions about this example:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Open an [issue](https://github.com/VoidLance/course-files-javascript-react-practical-jsx-variables-and-objects/issues).
+- Review the [React documentation](https://react.dev/learn).
+- Review the [Create React App documentation](https://create-react-app.dev/docs/getting-started/).
 
-### Deployment
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The project is maintained by [VoidLance](https://github.com/VoidLance). Contributions are welcome:
 
-### `npm run build` fails to minify
+1. Fork the repository and create a focused branch.
+2. Make your change and update related tests or documentation.
+3. Run `npm test` and `npm run build`.
+4. Open a pull request with a clear description of the change.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Keep examples focused on the JavaScript and JSX concepts demonstrated by this project.
